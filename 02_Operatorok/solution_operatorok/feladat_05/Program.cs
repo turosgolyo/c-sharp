@@ -5,13 +5,12 @@ Console.Write("Adja meg a második számot! ");
 int number2 = int.Parse(Console.ReadLine());
 
 Console.Write("Adja meg a harmadik számot!! ");
-int number3 = int.Parse(Console.ReadLine());
+double number3 = double.Parse(Console.ReadLine());
 
 Console.Write("Adja meg a negyedik számot!! ");
-int number4 = int.Parse(Console.ReadLine());
+double number4 = double.Parse(Console.ReadLine());
 
-
-int solution = (number1 + number2) / (number3 - number4);
+double solution = (number1 + number2) / (number3 - number4);
 Console.WriteLine($"Az eredmény: {solution}");
 
 Console.ReadKey();
