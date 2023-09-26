@@ -8,17 +8,16 @@ Console.WriteLine("Soros vagy párhuzamos?! (P, S) ");
 string connection = Console.ReadLine();
 connection = connection.ToLower();
 
-if ((connection == "p") || (connection == "s"))
-{
-    double result =connection switch
-    {
-        "p" => (number1 + number2)/(number1 * number2),
-        "s" => number1 + number2,
-        _ => 0
-    };
-    Console.WriteLine($"Az eredmény: {result} ohm");
-}
-else
+if (!((connection == "p") || (connection == "s")))
 {
     Console.WriteLine("Ilyen kapcsolás nincsen.");
+    return;
 }
+
+double result = connection switch
+{
+    "p" => (number1 + number2) / (number1 * number2),
+    "s" => number1 + number2,
+    _ => 0
+};
+Console.WriteLine($"Az eredmény: {result} ohm");

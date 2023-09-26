@@ -8,15 +8,18 @@ Console.WriteLine("Melyik értéket számolná ki?\nTerület - t\nKerület - k\n
 string solution = Console.ReadLine();
 solution = solution.ToLower();
 
-if ((solution == "t") || (solution == "k") || (solution == "a"))
+if (!((solution == "t") || (solution == "k") || (solution == "a")))
 {
-    double result = solution switch
-    {
+    Console.WriteLine("Ilyen érték nincsen.");
+    return;
+}
+double result = solution switch
+{
         "t" => number1 * number2,
         "k" => 2 * (number1 + number2),
         "a" => Math.Round(Math.Sqrt(Math.Pow(number1, 2) + Math.Pow(number2, 2)), 2),
         _ => 0
-    };
+};
     switch (solution)
     {
         case "t":
@@ -26,9 +29,3 @@ if ((solution == "t") || (solution == "k") || (solution == "a"))
             Console.WriteLine($"Az eredmény: {result} cm");
             break;
     }
-        
-}
-else
-{
-    Console.WriteLine("Ilyen érték nincsen.");
-}
