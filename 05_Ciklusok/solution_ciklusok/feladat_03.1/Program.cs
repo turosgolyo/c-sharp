@@ -1,0 +1,24 @@
+﻿Random rnd = new Random();
+int number = rnd.Next(0, 10);
+int guess = 0;
+int count = 0;
+
+do
+{
+    count++;
+    Console.Write($"{count}. próbálkozás. Adjon meg egy számot ");
+    guess = int.Parse(Console.ReadLine());
+}
+while (count != 5 && number != guess);
+
+if(number == guess)
+{
+    Console.WriteLine($"Eltalálta a számot. A szám {number} volt.");
+}
+else
+{
+    Console.WriteLine("Nem talált.");
+}
+
+Console.ReadKey();
+
