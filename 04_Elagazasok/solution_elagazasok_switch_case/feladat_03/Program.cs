@@ -1,6 +1,4 @@
-﻿using System.Xml.Serialization;
-
-Console.WriteLine("Válasszon az üdítők közül:\nCoca Cola - 1\nPepsi - 2\nFanta - 3\nSprite - 4");
+﻿Console.WriteLine("Válasszon az üdítők közül:\nCoca Cola - 1\nPepsi - 2\nFanta - 3\nSprite - 4");
 int choice = int.Parse(Console.ReadLine());
 
 string drink = choice switch
