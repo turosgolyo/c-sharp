@@ -1,4 +1,7 @@
-﻿int numberEven = 0;
+﻿string input = "";
+bool isNumber1 = false;
+bool isNumber2 = false;
+int numberEven = 0;
 int numberOdd = 0;
 int numberEvenDist = 0;
 int numberOddDist = 0;
@@ -7,13 +10,23 @@ int temp = 0;
 int sum = 0;
 double average = 0;
 
-while ((numberEven % 2 == 1) || (numberOdd % 2 == 0) || (numberEven > numberOdd))
+
+while ((numberEven % 2 == 1) || (numberOdd % 2 == 0) || (numberEven > numberOdd) || !isNumber1 || !isNumber2)
 {
     Console.Write("Adjon meg egy páros számot: ");
-    numberEven = int.Parse(Console.ReadLine());
-
+    input = Console.ReadLine();
+    isNumber1 = int.TryParse(input, out numberEven);
+    if (!isNumber1)
+    {
+        Console.WriteLine("Nem számot adott meg!");
+    }
     Console.Write("Adjon meg egy páratlan számot: ");
-    numberOdd = int.Parse(Console.ReadLine());
+    input = Console.ReadLine();
+    isNumber2 = int.TryParse(input, out numberOdd);
+    if (!isNumber2)
+    {
+        Console.WriteLine("Nem számot adott meg!");
+    }
 }
 
 Random rnd = new Random();

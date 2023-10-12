@@ -1,14 +1,20 @@
 ﻿int number = 0;
 int number2 = 0;
+bool isNumber = false;
+string input = "";
 int sum = 0;
 int count = 0;
 
-while ((number > 99) || (number < 10))
+while ((number > 99) || (number < 10) || !isNumber)
 {
     Console.Write("Adjon meg egy kétjegyű pozitív számot: ");
-    number = int.Parse(Console.ReadLine());
+    input = Console.ReadLine();
+    isNumber = int.TryParse(input, out number);
+    if (!isNumber)
+    {
+        Console.WriteLine("Nem számot adott meg!");
+    }
 }
-
 
 while (number2 <= number)
 {

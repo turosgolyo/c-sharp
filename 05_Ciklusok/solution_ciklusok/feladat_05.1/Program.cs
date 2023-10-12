@@ -15,7 +15,7 @@ do
     number = int.Parse(Console.ReadLine());
     sum += number;
 }
-while (sum <= 1000);
+while (sum <= limit);
 
 Console.WriteLine($"Az összeg ({sum}) meghaladta a hatértéket ({limit}).");
 

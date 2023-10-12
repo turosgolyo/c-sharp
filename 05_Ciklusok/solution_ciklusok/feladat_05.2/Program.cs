@@ -9,7 +9,7 @@ while (100 > limit)
 }
 
 
-while (sum <= 1000)
+while (sum <= limit)
 {
     Console.Write($"Jelenlegi összeg: {sum}. Adjon meg egy számot ");
     number = int.Parse(Console.ReadLine());

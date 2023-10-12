@@ -1,6 +1,4 @@
-﻿using System.Globalization;
-
-int age = 0;
+﻿int age = 0;
 bool isNumber = false;
 
 do
