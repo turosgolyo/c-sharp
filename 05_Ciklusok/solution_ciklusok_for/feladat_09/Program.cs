@@ -35,16 +35,11 @@ Console.WriteLine("Csökkenő sorrendben páros számok:");
 
 if (start % 2 == 1)
 {
-    for (int i = start - 1; i > end; i = i - 2)
-    {
-        Console.Write($"{i} ");
-    }
+    start--;
 }
-else
+
+for (int i = start; i > end; i = i - 2)
 {
-    for (int i = start; i > end; i = i - 2)
-    {
-        Console.Write($"{i} ");
-    }
+    Console.Write($"{i} ");
 }
 

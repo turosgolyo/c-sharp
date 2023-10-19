@@ -1,4 +1,6 @@
-﻿int start;
+﻿using Microsoft.Win32.SafeHandles;
+
+int start;
 int end;
 string temp;
 bool isNumber;
@@ -33,36 +35,15 @@ do
 }
 while (!isNumber || end <= start);
 
-if (start % 2 == 1)
+for (int i = start; i < end; i++)
 {
-    for (int i = start + 1; i < end; i = i + 2)
+    Console.Write($"{i} ");
+    if(i % 2 == 0)
     {
-        Console.Write($"{i} ");
         sum = sum + i;
     }
-}
-else
-{
-    for (int i = start; i < end; i = i + 2)
+    else
     {
-        Console.WriteLine($"{i} ");
-        sum = sum + i;
-    }
-}
-
-if (start % 2 == 1)
-{
-    for (int i = start; i < end; i = i + 2)
-    {
-        Console.Write($"{i} ");
-        multiplication = multiplication * i;
-    }
-}
-else
-{
-    for (int i = start + 1; i < end; i = i + 2)
-    {
-        Console.WriteLine($"{i} ");
         multiplication = multiplication * i;
     }
 }

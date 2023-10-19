@@ -1,6 +1,4 @@
-﻿using System.Collections.Specialized;
-
-int start;
+﻿int start;
 int end;
 string temp;
 bool isNumber;

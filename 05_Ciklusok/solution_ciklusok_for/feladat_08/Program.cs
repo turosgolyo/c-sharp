@@ -33,18 +33,12 @@ while (!isNumber || end <= start);
 
 Console.WriteLine("Növekvő sorrendben páratlan számok:");
 
-if (start % 2 == 1)
+if (start % 2 == 0)
 {
-    for (int i = start; i < end; i = i + 2)
-    {
-    Console.Write($"{i} ");
-    }
-}
-else
-{
-    for (int i = start + 1; i < end; i = i + 2)
-    {
-        Console.Write($"{i} ");
-    }
+    start++;
 }
 
+for (int i = start; i < end; i = i + 2)
+{
+    Console.Write($"{i} ");
+}

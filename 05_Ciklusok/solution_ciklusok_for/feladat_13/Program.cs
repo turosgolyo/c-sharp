@@ -33,41 +33,20 @@ do
 }
 while (!isNumber || end <= start);
 
-if (start % 2 == 1)
+for (int i = start; i < end; i++)
 {
-    for (int i = start + 1; i < end; i = i + 2)
+    Console.Write($"{i} ");
+    if (i % 2 == 0)
     {
-        Console.Write($"{i} ");
-        sumEven = sumEven + i;
+        sumEven += i;
     }
-}
-else
-{
-    for (int i = start; i < end; i = i + 2)
+    else
     {
-        Console.WriteLine($"{i} ");
-        sumEven = sumEven + i;
+        sumOdd += i;
     }
 }
 
-if (start % 2 == 1)
-{
-    for (int i = start; i < end; i = i + 2)
-    {
-        Console.Write($"{i} ");
-        sumOdd = sumOdd + i;
-    }
-}
-else
-{
-    for (int i = start + 1; i < end; i = i + 2)
-    {
-        Console.WriteLine($"{i} ");
-        sumOdd = sumOdd + i;
-    }
-}
-
-if(sumOdd > sumEven)
+if (sumOdd > sumEven)
 {
     Console.WriteLine($"\nAz intervallumban a PÁRATLAN számok összege (páratlan: {sumOdd}, páros: {sumEven}) a nagyobb.");
 }
