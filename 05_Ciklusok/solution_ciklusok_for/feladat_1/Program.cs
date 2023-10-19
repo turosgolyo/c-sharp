@@ -2,8 +2,8 @@
 int end;
 string temp;
 bool isNumber;
-int sum = 0;
-int multiplication = 1;
+int sumSeven = 0;
+int sumFive = 0;
 
 do
 {
@@ -33,39 +33,23 @@ do
 }
 while (!isNumber || end <= start);
 
-if (start % 2 == 1)
+for (int i = start; i < end; i++)
 {
-    for (int i = start + 1; i < end; i = i + 2)
+    if (i % 7 == 0)
     {
-        Console.Write($"{i} ");
-        sum = sum + i;
+        sumSeven = sumSeven + i;
     }
+    if (i % 5 == 0)
+    {
+        sumFive = sumFive + i;
+    }
+}
+
+if (sumSeven > sumFive)
+{
+    Console.WriteLine($"\nAz intervallumban a HÉTTEL osztható számok összege (héttel: {sumSeven}, öttel: {sumFive}) a nagyobb.");
 }
 else
 {
-    for (int i = start; i < end; i = i + 2)
-    {
-        Console.WriteLine($"{i} ");
-        sum = sum + i;
-    }
+    Console.WriteLine($"\nAz intervallumban az ÖTTEL osztható számok összege (héttel: {sumSeven}, öttel: {sumFive}) a nagyobb.");
 }
-
-if (start % 2 == 1)
-{
-    for (int i = start; i < end; i = i + 2)
-    {
-        Console.Write($"{i} ");
-        multiplication = multiplication * i;
-    }
-}
-else
-{
-    for (int i = start + 1; i < end; i = i + 2)
-    {
-        Console.WriteLine($"{i} ");
-        multiplication = multiplication * i;
-    }
-}
-
-Console.WriteLine($"\nAz intervallum számainak összege: {sum}\nAz intervallum számainak szorzata: {multiplication}");
-

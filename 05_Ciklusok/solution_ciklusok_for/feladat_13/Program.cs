@@ -2,8 +2,8 @@
 int end;
 string temp;
 bool isNumber;
-int sum = 0;
-int multiplication = 1;
+int sumEven = 0;
+int sumOdd = 0;
 
 do
 {
@@ -38,7 +38,7 @@ if (start % 2 == 1)
     for (int i = start + 1; i < end; i = i + 2)
     {
         Console.Write($"{i} ");
-        sum = sum + i;
+        sumEven = sumEven + i;
     }
 }
 else
@@ -46,7 +46,7 @@ else
     for (int i = start; i < end; i = i + 2)
     {
         Console.WriteLine($"{i} ");
-        sum = sum + i;
+        sumEven = sumEven + i;
     }
 }
 
@@ -55,7 +55,7 @@ if (start % 2 == 1)
     for (int i = start; i < end; i = i + 2)
     {
         Console.Write($"{i} ");
-        multiplication = multiplication * i;
+        sumOdd = sumOdd + i;
     }
 }
 else
@@ -63,9 +63,15 @@ else
     for (int i = start + 1; i < end; i = i + 2)
     {
         Console.WriteLine($"{i} ");
-        multiplication = multiplication * i;
+        sumOdd = sumOdd + i;
     }
 }
 
-Console.WriteLine($"\nAz intervallum számainak összege: {sum}\nAz intervallum számainak szorzata: {multiplication}");
-
+if(sumOdd > sumEven)
+{
+    Console.WriteLine($"\nAz intervallumban a PÁRATLAN számok összege (páratlan: {sumOdd}, páros: {sumEven}) a nagyobb.");
+}
+else
+{
+    Console.WriteLine($"\nAz intervallumban a PÁROS számok összege (páratlan: {sumOdd}, páros: {sumEven}) a nagyobb.");
+}
