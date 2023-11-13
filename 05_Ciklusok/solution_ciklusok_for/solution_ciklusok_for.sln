@@ -25,19 +25,25 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_10", "feladat_10\fe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_11", "feladat_11\feladat_11.csproj", "{5BA16F7F-342C-4747-B79B-7FBB3022CACB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "feladat_12", "feladat_12\feladat_12.csproj", "{0F60B6F3-B0BF-4447-A88A-536E87456A49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_12", "feladat_12\feladat_12.csproj", "{0F60B6F3-B0BF-4447-A88A-536E87456A49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "feladat_13", "feladat_13\feladat_13.csproj", "{7B96C72B-A6AE-44ED-A39C-ED36595F1FBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_13", "feladat_13\feladat_13.csproj", "{7B96C72B-A6AE-44ED-A39C-ED36595F1FBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "feladat_14", "feladat_1\feladat_14.csproj", "{629B65BD-F8A6-447B-BA35-485495C4BDDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_14", "feladat_1\feladat_14.csproj", "{629B65BD-F8A6-447B-BA35-485495C4BDDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "feladat_15", "feladat_15\feladat_15.csproj", "{84F201DE-5ABC-48A3-8052-FACCA2865E50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_15", "feladat_15\feladat_15.csproj", "{84F201DE-5ABC-48A3-8052-FACCA2865E50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "feladat_16", "feladat_16\feladat_16.csproj", "{D40B1172-33DA-4C97-AB4E-6F890F3F586A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_16", "feladat_16\feladat_16.csproj", "{D40B1172-33DA-4C97-AB4E-6F890F3F586A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "feladat_17", "feladat_17\feladat_17.csproj", "{807E8A0A-040F-47B5-836D-A9C3C5C2A767}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_17", "feladat_17\feladat_17.csproj", "{807E8A0A-040F-47B5-836D-A9C3C5C2A767}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "feladat_18", "feladat_18\feladat_18.csproj", "{6C0C8E59-B45E-4C08-ADB6-BB5EDF5FB169}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_18", "feladat_18\feladat_18.csproj", "{6C0C8E59-B45E-4C08-ADB6-BB5EDF5FB169}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "feladat_19", "feladat_19\feladat_19.csproj", "{FA980734-1920-4BDF-B9CA-CBC9155EFF30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "feladat_20", "feladat_20\feladat_20.csproj", "{A458344A-008E-4684-904C-CC85C26E0441}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "feladat_21", "feladat_21\feladat_21.csproj", "{B19311EB-C010-4DBD-BD12-9B2617873884}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +123,18 @@ Global
 		{6C0C8E59-B45E-4C08-ADB6-BB5EDF5FB169}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C0C8E59-B45E-4C08-ADB6-BB5EDF5FB169}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C0C8E59-B45E-4C08-ADB6-BB5EDF5FB169}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA980734-1920-4BDF-B9CA-CBC9155EFF30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA980734-1920-4BDF-B9CA-CBC9155EFF30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA980734-1920-4BDF-B9CA-CBC9155EFF30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA980734-1920-4BDF-B9CA-CBC9155EFF30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A458344A-008E-4684-904C-CC85C26E0441}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A458344A-008E-4684-904C-CC85C26E0441}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A458344A-008E-4684-904C-CC85C26E0441}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A458344A-008E-4684-904C-CC85C26E0441}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B19311EB-C010-4DBD-BD12-9B2617873884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B19311EB-C010-4DBD-BD12-9B2617873884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B19311EB-C010-4DBD-BD12-9B2617873884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B19311EB-C010-4DBD-BD12-9B2617873884}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
