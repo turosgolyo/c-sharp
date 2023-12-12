@@ -26,7 +26,7 @@ public static class ExtendedConsole
 
         do
         {
-            Console.WriteLine(prompt);
+            Console.Write(prompt);
 
             string text = Console.ReadLine();
             isNumber = int.TryParse(text, out number);
