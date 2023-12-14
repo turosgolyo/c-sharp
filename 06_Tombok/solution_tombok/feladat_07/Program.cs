@@ -4,12 +4,16 @@ DailyExpense[] expenses = GetDailyExpenses();
 Console.Clear();
 
 Console.WriteLine("Weekly expenses: ");
-PrintWeekExpensesToConsole(expenses);
+PrintWeekExpensesToConsole(weeklyExpenses);
 
 int weeklyExpensesSum = weeklyExpenses.Sum(dailyExpense => dailyExpense.Expenses);
 Console.WriteLine($"All weekly expenses.");
 
 Console.ReadKey();
+
+
+bool hasExpenseEqualTo10000 = weeklyExpenses.Any(x => x.Expense = 10000);
+Console.WriteLine($"{(hasExpenseEqualTo10000 ? "Volt" : "Nem volt")}");
 
 DailyExpense[] GetDailyExpenses()
 {
@@ -38,3 +42,4 @@ DailyExpense GetDayWithTheLeastExpense(DailyExpense[] expenses)
     DailyExpense day withTheLeastExpense = null;
     int dayWithLeastExnepnse = expenses.First;
 }
+
