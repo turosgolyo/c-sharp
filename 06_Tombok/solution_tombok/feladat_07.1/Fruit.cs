@@ -12,12 +12,13 @@
     }
     public Fruit(string name, int amount, int unitPrice)
     {
-        Name = name;
-        Amount = amount;
-        UnitPrice = unitPrice; 
+        this.Name = name;
+        this.Amount = amount;
+        this.UnitPrice = unitPrice;
     }
     public override string ToString()
     {
-        return $"{Name} - {Amount} kg - {UnitPrice} Ft/kg - {Price} Ft";
+        return $"{this.Name} - {this.Amount} kg - {this.UnitPrice} Ft/kg - {this.Price} Ft";
     }
+
 }
