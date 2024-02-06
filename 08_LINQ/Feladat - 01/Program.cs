@@ -77,9 +77,14 @@ namespace Feladat___01
                                                            .Select(x => new PlayerTeams
                                                            {
                                                                TeamName = x.Key,
-                                                               PlayerName = x.Select(x => x.Name)
+                                                               PlayerNames = x.Select(x => x.Name).ToList(),
                                                            })
                                                            .ToList();
+
+            foreach(PlayerTeams playerTeam in playerCountByTeams)
+            {
+                Console.WriteLine(playerTeam);
+            }
 
         }
     }
