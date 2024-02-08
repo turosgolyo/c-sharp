@@ -49,14 +49,14 @@ int slowestSpeed = motorcycles.Min(x => x.TopSpeed);
 bool anyMotorcyclesMadeBefore1960 = motorcycles.Any(x => x.ReleaseYear < 1960);
 
 // 6 - Van-e 'Honda' gyártmányú motorkerképár az 'adatbázisban' melynek beceneve 'Hornet' ?
-bool anyHornetMotorcycles = motorcycles.Any(x => x.Model == "Hornet");
+bool anyHornetMotorcycles = motorcycles.Any(x => x.Nickname =="Hornet" && x.Brand == "Honda");
 
 // 7 - Keressük ki a 'Yamaha' gyártmányú motorkerékpárokat!
 List < Motorcycle > yamahaMotorcycles = motorcycles.Where(x => x.Brand == "Yamaha").ToList();
 
 // 8 -Keressük a 'Suzuki' gyártotmányú motorkerékpárokat melyek 600ccm felett vannak!
 List<Motorcycle> suzukiMotorcyclesAbove600ccm = motorcycles.Where(x => x.Brand == "Suzuki")
-                                                           .Where(x => x.Cubic >= 600)
+                                                           .Where(x => x.Cubic > 600)
                                                            .ToList();
 
 // 9 - Keressük ki a 'Kawasaki' gyártotmányú motorkerékpárokat, melyek sebesságe nagyobb min 150km/h!
@@ -79,7 +79,7 @@ List<string> motorcycleNicknames = motorcycles.Select(x => x.Nickname).ToList();
 List<Motorcycle> motorcyclesWithFZInTheName = motorcycles.Where(x => x.Model.Contains("FZ")).ToList();
 
 // 14 - Keressük azokat a motorkerékpárokat, melyek nevei 'C' betűvel kezdődnek!
-List<Motorcycle> motorcyclesStartsWithC = motorcycles.Where(x => x.Model.StartsWith("C")).ToList();
+List<Motorcycle> motorcyclesStartsWithC = motorcycles.Where(x => x.Nickname.StartsWith("C")).ToList();
 
 // 15 - Keressük az első motorkerékpárt az 'adatbázisunkból'!
 Motorcycle firstMotorcycle = motorcycles.First();
@@ -95,12 +95,13 @@ List<Motorcycle> motorcyclesOrderedByYear = motorcycles.OrderBy(x => x.ReleaseYe
 List<Motorcycle> hondaMotorcycleAtLeast25kWMadeAfter2005= motorcycles.Where(x => x.Brand == "Honda")
                                                                      .Where(x => x.ReleaseYear >= 2005)
                                                                      .Where(x => x.KW == 25)
-                                                                     .OrderByDescending(x => x.Model)
+                                                                     .OrderByDescending(x => x.KW)
                                                                      .ToList();
 
 
 // 19 - Melyek azok a  motorkerékpárok, melyek nem rendelkeznek becenévvel?
-
+List<Motorcycle> motorcyclesWithoutNicknames = motorcycles.Where(x => x.Nickname == string.Empty)
+                                                          .ToList();
 
 // 20 - Mekkora az 'adatbázisban' szereplő motorkerékpárok sebességének az átlaga?
 double averageTopSpeed = motorcycles.Average(x => x.TopSpeed);
@@ -110,12 +111,14 @@ int maxSpeed = motorcycles.Max(x => x.TopSpeed);
 Motorcycle fastestMotorcycle = motorcycles.First(x => x.TopSpeed == maxSpeed);
 
 // 22 - Hány kategória található meg az 'adatbázisban'?
-List<Motorcycle> categoryCount = motorcycles
-                                        .Distinct(x => x.Category).ToList();
+int categoryCount = motorcycles.Select(x => x.Category)
+                                            .Distinct()
+                                            .Count();
+//makficam😒🤑
 
 
 // 23 - Határozza meg az 'adatbázisban' talalható motorkerékpárok átlag életkorát!
-double averageAge = motorcycles.Average(x => (2024-x.ReleaseYear));
+double averageAge = motorcycles.Average(x => (DateTime.Now.Year-x.ReleaseYear));
 
 // 24 - Van-e 'Java' gyártmányú motorkerékpár az 'adatbázisban'?
 bool javaMotorcycle = motorcycles.Any(x => x.Brand == "Java");

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32.SafeHandles;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
@@ -41,32 +43,63 @@ List<Movie> movies = LoadData();
 WriteToConsole($"Data ({movies.Count})", movies);
 
 // 1 - Hány film adatát dolgozzuk fel?
+int count = movies.Count;
+
 
 // 2 - Mekkora bevételt hoztak a filmek Amerikában?
+long USGrossSum = movies.Where(x => x.USGross != null)
+                       .Sum(x => x.USGross.Value);
+
+USGrossSum = movies.Sum(x => x.USGross ?? 0);
+
 
 // 3 - Mekkora bevételt hoztak a filmek Világszerte?
+long globalGrossSum = movies.Sum(x => x.WorldwideGross ?? 0);
+
 
 // 4 - Hány film jelent meg az 1990-es években?
+int moviesReleasedIn90s = movies.Count(x => x.ReleaseDate.Year >= 1990 && x.ReleaseDate.Year < 2000);
+
 
 // 5 - Hányan szavaztak összessen az IMDB-n?
+long voteCounts = movies.Where(x => x.IMDBVotes.HasValue)
+                        .Sum(x => x.IMDBVotes.Value);
 
 // 6 - Hányan szavaztak átlagossan az IMDB-n?
+double voteAverage = movies.Where(x => x.IMDBVotes.HasValue)
+                           .Average(x => x.IMDBVotes.Value);
+
 
 // 7 - A filmek  világszerte átlagban mennyit hoztak a konyhára?
+double averageGrossIncome = movies.Average(x => x.WorldwideGross ?? 0);
 
 // 8 - Hány filmet rendezett 'Christopher Nolan' ?
+int countMoviesDirectedByChristopherNolan = movies.Count(x => x.Director?.ToLower() == "christopher nolan");
 
 // 9 - Melyik filmeket rendezte 'James Cameron'?
+List<Movie> moviesDirectedByJamesCameron = movies.Where(x => x.Director?.ToLower() == "james cameron").ToList();
 
 // 10 - Keresse ki a 'Fantasy' kaland (Adventure) zsáner kategóriájjú filmeket.
+List<Movie> adventureMovies = movies.Where(x => x.MajorGenre?.ToLower() == "fantasy").ToList();
 
 // 11 - Kik rendeztek akció (Action) filmeket és mikor?
-
+List<ActionMovies> actionDirectors = movies.Where(x => x.MajorGenre == "Action")
+                                           .Where(x => x.Director != null)
+                                           .GroupBy(x => x.Director)
+                                           .Select(x => new ActionMovies
+                                           {
+                                               Name = x.Key,
+                                               Times = x.Select(x => x.ReleaseDate).ToList()
+                                           }).ToList();
 // 12 - 'Paramount Pictures' horror filmjeinek cime?
+List<string> paramountHorrorMovies = movies.Where(x => x.Distributor == "Paramount Pictures")
+                                           .Select(x => x.Title)
+                                           .ToList();
 
 // 13 - Van-e olyan film melyet 'Tom Crusie' rendezett?
 
 // 14 - A 'Little Miss Sunshine' filme mekkora össz bevételt hozott?
+
 
 // 15 - Hány olyan film van amely az IMDB-n 6 feletti osztályzatot ért el és a 'Rotten Tomatoes'-n pedig legalább 25-t?
 
