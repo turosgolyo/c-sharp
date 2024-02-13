@@ -11,4 +11,7 @@ public class ActionMovies
         Name = name;
         Times = times;
     }
+    public ActionMovies()
+    {
+    }
 }

@@ -100,7 +100,7 @@ List<string> paramountHorrorMovies = movies.Where(x => x.Distributor == "Paramou
 bool anyFilmsDirectedByTomCrouise = movies.Any(x => x.Director == "Tom Cruise");
 
 // 14 - A 'Little Miss Sunshine' filme mekkora össz bevételt hozott?
-int littleMissSunshineGross = 0;
+long? littleMissSunshineGross = movies.Where(x => x.Title == "Little Miss Sunshine").Sum(x => x.WorldwideGross);
 
 // 15 - Hány olyan film van amely az IMDB-n 6 feletti osztályzatot ért el és a 'Rotten Tomatoes'-n pedig legalább 25-t?
 int IMDB6AndRottenTomatoes25Rating = movies.Count(x => x.IMDBRating >= 6 && x.RottenTomatoesRating >= 25);
@@ -130,6 +130,14 @@ int moviesReleasedInDec = movies.Count(x => x.ReleaseDate.Month == 12);
 
 
 // 23 - Egyes besorolásokban (Rating) hány film található?
+List<MoviesByRating> moviesByRating = movies.GroupBy(x => x.Rating)
+                                            .Select(x => new MoviesByRating
+                                            {
+                                               Rating = x.Key,
+                                               Name = x.Select(x => x.Title).ToList()
+                                            }).ToList();
+
+
 
 // 24 - Keresse ki azokat a filmeket melyeket 'Ron Howard' rendezett a 2000 években, 'PG-13' bsorolású, lagalább 80 perc hosszú és az IMDB legalább 6.5 átlagot ért el.
 List<Movie> idk = movies.Where(x => x.Director == "Ron Howard" && x.ReleaseDate.Year >= 2000 && x.Rating == "PG-13" && x.RunningTime >= 80 && x.IMDBRating >= 6.5).ToList();
@@ -151,11 +159,11 @@ List<Movie> imdbVotesOver30000 = movies.Where(x => x.IMDBVotes >= 30000).ToList(
 
 
 // 28 - Az 'American Pie' című filmnek hány része van?
-int americanPiePartCount = movies.Count(x => x.Title.Contains("American Pie"));
+int americanPiePartCount = movies.Count(x => x.Title?.ToLower().StartsWith("american pie") ?? false);
 
 
 // 29 - Van-e olyan film melynek a címében szerepel a 'fantasy' szó és a zsánere 'Adventure'?
-bool anyFantasyAdventureMovires = movies.Any(x => x.Title.Contains("fantasy") && x.MajorGenre == "Adventure");
+bool anyFantasyAdventureMovires = movies.Any(x => x.Title?.ToLower().Contains("fantasy") ?? false && x.MajorGenre == "Adventure");
 
 
 // 30 - Átlagban hányan szavaztak az IMDB-n?
@@ -176,3 +184,10 @@ long? spidermanGross = movies.Where(x => x.Title.Contains("Spider-Man")).Sum(x =
 
 // 34 - Keresse ki  szuperhősös (Super Hero) filmek címeit.
 List<string> superheroMovies = movies.Where(x => x.CreativeType == "Super Hero").Select(x => x.Title).ToList();
+
+
+// 35 - elso tiz film
+List<Movie> first10Movies = movies.Take(10).ToList();
+
+// 36 - feladat?
+List<Movie> page3 = movies.Skip(30).Take(10).ToList();
