@@ -9,7 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="output\**" />
+    <EmbeddedResource Remove="output\**" />
+    <None Remove="output\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="source\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Custom.Library\CustomLibrary.csproj" />
   </ItemGroup>
 
   <ItemGroup>

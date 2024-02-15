@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "00_Dictionary", "00_Diction
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_FileRead", "01_FileRead\01_FileRead.csproj", "{D9664C4F-F8D1-4DAA-9B5D-2F52E7171F9A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomLibrary", "Custom.Library\CustomLibrary.csproj", "{4D313D3B-A02B-4432-8FE2-0C295418CC5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D9664C4F-F8D1-4DAA-9B5D-2F52E7171F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9664C4F-F8D1-4DAA-9B5D-2F52E7171F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9664C4F-F8D1-4DAA-9B5D-2F52E7171F9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D313D3B-A02B-4432-8FE2-0C295418CC5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D313D3B-A02B-4432-8FE2-0C295418CC5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D313D3B-A02B-4432-8FE2-0C295418CC5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D313D3B-A02B-4432-8FE2-0C295418CC5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
