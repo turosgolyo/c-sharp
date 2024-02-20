@@ -22,6 +22,28 @@ await FileService.WriteToFileV1Async("atlagfelett", studentsAboveAverage);
 bool hasExcellentStudent = students.Any(x => x.Average == 5);
 Console.WriteLine($"{(hasExcellentStudent ? "Van" : "Nincs")}");
 
+Dictionary<Grade, int> gradesCount1 = new Dictionary<Grade, int>()
+{
+	[Grade.Elegtelen] = students.Count(x => x.Grade == Grade.Elegtelen),
+    [Grade.Elegseges] = students.Count(x => x.Grade == Grade.Elegseges),
+    [Grade.Jo] = students.Count(x => x.Grade == Grade.Jo),
+    [Grade.Jeles] = students.Count(x => x.Grade == Grade.Jeles),
+    [Grade.Kituno] = students.Count(x => x.Grade == Grade.Kituno)
+};
+
+Dictionary<Grade, int> gradesCount2 = new Dictionary<Grade, int>();
+
+foreach(Grade grade in Enum.GetValues<Grade>())
+{
+	gradesCount2[grade] = students.Count(x => x.Grade == grade);
+}
+
+foreach(KeyValuePair<Grade, int> grade in gradesCount2)
+{
+    Console.WriteLine($"{grade.Key} : {grade.Value} db");
+}
+
+
 /*
 Feladatunk, hogy
 1 - Írjuk ki minden diák adatát a képernyőre!
