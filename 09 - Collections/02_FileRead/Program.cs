@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-List<Book> books = await FileService.ReadFromFileAsync("adatok.txt");
+﻿List<Book> books = await FileService.ReadFromFileAsync("adatok.txt");
 
 books.WriteCollectionToConsole();
 
@@ -13,8 +11,12 @@ await FileService.WriteToFileAsync("1900", booksReleasedIn1900s);
 List<Book> orderedBooks = books.OrderByDescending(x => x.PageCount).ToList();
 await FileService.WriteToFileAsync("sorbarakott", orderedBooks);
 
-Dictionary<string, Book> bookByTheme = new Dictionary<string, Book>();
-
+List<BookByTheme> booksByTheme = books.GroupBy(x => x.Theme)
+                            .Select(x => new BookByTheme
+                            {
+                                Theme = x.Key,
+                                Titles = x.Select(x => x.Title).ToList()
+                            }).ToList();
 
 await FileService.WriteToFileAsync("kategoriak", booksByTheme);
 /*

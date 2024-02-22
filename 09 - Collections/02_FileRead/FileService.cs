@@ -56,5 +56,23 @@
             await sw.WriteLineAsync($"{book.Title}\t{book.Theme}\t{book.ReleaseDate}");
         }
     }
+    public static async Task WriteToFileAsync(string fileName, ICollection<BookByTheme> books)
+    {
+        Directory.CreateDirectory("output");
+
+        string path = Path.Combine("output", $"{fileName}.txt");
+
+        using FileStream fs = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None, 128);
+        using StreamWriter sw = new StreamWriter(fs, Encoding.UTF8);
+
+        foreach (BookByTheme book in books)
+        {
+            await sw.WriteLineAsync($"{book.Theme}");
+            foreach (string title in book.Titles)
+            {
+                await sw.WriteAsync($"\t-{title}");
+            }    
+        }
+    }
     #endregion
 }
