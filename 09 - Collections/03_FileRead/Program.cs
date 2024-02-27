@@ -20,17 +20,15 @@ Ország (ahol a csapat játszik)
 
 
 // beolvasas, kiiras
-using static System.Reflection.Metadata.BlobBuilder;
-
 List<Player> players = new List<Player>();
 
 players = await FileService.ReadFromFileAsync("adatok.txt");
 
 ExtendedSystem.WriteCollectionToConsole(players);
 
-//uto jatekosok, nem mukszik 
+//uto jatekosok
 List<Player> hittingPlayers = new List<Player>();
-hittingPlayers = players.Where(x => x.Post == "uto").ToList();
+hittingPlayers = players.Where(x => x.Post == "ütõ").ToList();
 await FileService.WriteToFileAsync("utok.txt", hittingPlayers);
 
 //csapatonkent jatekosok
@@ -42,3 +40,29 @@ List<PlayersByTeam> playersByTeam= players.GroupBy(x => x.Team)
                             }).ToList();
 
 await FileService.WriteToFileAsync("csapattagok.txt", playersByTeam);
+
+//sorba
+List<Player> orderedPlayers = players.OrderBy(x => x.Height).ToList();
+await FileService.WriteToFileAsync("magassagok.txt", orderedPlayers);
+
+//nemzetisegek
+List<PlayersByNation> playersByNation = players.GroupBy(x => x.Nationality)
+                            .Select(x => new PlayersByNation
+                            {
+                                Nation = x.Key,
+                                Names = x.Select(x => x.Name).ToList()
+                            }).ToList();
+
+await FileService.WriteToFileAsync("nemzetisegek.txt", playersByNation);
+
+//atlag magasabbak
+double averageHeight = players.Average(x => x.Height);
+List<Player> tallerThanAverage = players.Where(x => x.Height > averageHeight).ToList();
+await FileService.WriteToFileAsync("atlagnalmagasabbak.txt", tallerThanAverage);
+
+//posztok szerint
+List<Player> orderedByPost = players.OrderBy(x => x.Post).ThenBy(x => x.Height).ToList();
+
+//atlagnal kisebbek
+List<Player> shorterThanAverage = players.Where(x => x.Height < averageHeight).ToList();
+await FileService.WriteToFileAsync("alacsonyak.txt", shorterThanAverage);
