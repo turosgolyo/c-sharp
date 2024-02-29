@@ -10,26 +10,20 @@ Név	tippek
 */
 
 // beolvasas, kiiras
-using System.Security.Cryptography;
 
-List<Lottery> people = new List<Lottery>();
-
-people = await FileService.ReadFromFileAsync("adatok.txt");
+List<Lottery> people = await FileService.ReadFromFileAsync("adatok.txt");
 ExtendedSystem.WriteCollectionToConsole(people);
 
 //nyeroszamok
-List<int> winningNumbers = new List<int>();
-winningNumbers = GenerateWinningNumbers();
+List<int> winningNumbers = GenerateWinningNumbers();
 await FileService.WriteToFileAsync("nyeroszamok.txt", winningNumbers);
 
 //nyertesek
-List<Lottery> winners = new List<Lottery>();
-winners = people.Where(x => x.Guesses.Intersect(winningNumbers).Count() == 7).ToList();
+List<Lottery> winners = people.Where(x => x.Guesses.Intersect(winningNumbers).Count() == 7).ToList();
 await FileService.WriteToFileAsync("nyertesek.txt", winners);
 
 //talalatok
-List<Hits> hits = new List<Hits>();
-hits = people.Select(x => new Hits
+List<Hits> hits = people.Select(x => new Hits
 {
     Name = x.Name,
     HitsCount = x.Guesses.Intersect(winningNumbers).Count()
