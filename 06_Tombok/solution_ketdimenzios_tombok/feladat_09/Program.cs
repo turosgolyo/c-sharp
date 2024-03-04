@@ -1,18 +1,20 @@
 ﻿/*
- Számítsuk ki egy négyzetes mátrix mellekátlóján levő
-elemeinek összegét
+ Számítsuk ki egy négyzetes mátrix mellék átlója
+feletti elemeinek a maximumát
  */
+
 
 using CustomLibrary.ConsoleExtensions;
 using CustomLibrary.MathExtensions;
+using System.Numerics;
 
 
 int[,] matrix = GetTwoDimensionalArray(5, 5);
 PrintMatrix(matrix);
 
-int sum = GetOtherDiagonalSum(matrix);
+int max = GetOtherDiagonalAboveMaximum(matrix);
 
-Console.WriteLine($"A mátrix masik atlojanak osszege: {sum}");
+Console.WriteLine($"A mátrix masik atlo feletti maximuma: {max}");
 
 void PrintMatrix(int[,] matrix)
 {
@@ -38,12 +40,18 @@ int[,] GetTwoDimensionalArray(int x, int y)
     }
     return matrix;
 }
-int GetOtherDiagonalSum(int[,] matrix) // GetDiagonalSum -> GetOtherDiagonalSum
+int GetOtherDiagonalAboveMaximum(int[,] matrix)
 {
-    int sum = 0;
+    int max = matrix[0, matrix.GetLength(0) - 1];
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        sum = sum + matrix[i, matrix.GetLength(0) - i - 1];
+        for (int j = 0; j < matrix.GetLength(0) - i - 1; j++)
+        {
+            if (matrix[i, j] > max)
+            {
+                max = matrix[i, j];
+            }
+        }
     }
-    return sum;
+    return max;
 }

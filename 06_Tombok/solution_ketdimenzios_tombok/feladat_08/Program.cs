@@ -1,7 +1,7 @@
 ﻿/*
- Számítsuk ki egy négyzetes mátrix mellekátlóján levő
-elemeinek összegét
- */
+ Keressük ki egy négyzetes mátrix főátlója alatti
+elemeinek a minimumát
+*/
 
 using CustomLibrary.ConsoleExtensions;
 using CustomLibrary.MathExtensions;
@@ -10,9 +10,9 @@ using CustomLibrary.MathExtensions;
 int[,] matrix = GetTwoDimensionalArray(5, 5);
 PrintMatrix(matrix);
 
-int sum = GetOtherDiagonalSum(matrix);
+int min = GetDiagonalUnderMinimum(matrix);
 
-Console.WriteLine($"A mátrix masik atlojanak osszege: {sum}");
+Console.WriteLine($"A mátrix atlo alatti minimuma: {min}");
 
 void PrintMatrix(int[,] matrix)
 {
@@ -38,12 +38,18 @@ int[,] GetTwoDimensionalArray(int x, int y)
     }
     return matrix;
 }
-int GetOtherDiagonalSum(int[,] matrix) // GetDiagonalSum -> GetOtherDiagonalSum
+int GetDiagonalUnderMinimum(int[,] matrix)
 {
-    int sum = 0;
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    int min = matrix[1, 0];
+    for (int i = 1; i < matrix.GetLength(0); i++)
     {
-        sum = sum + matrix[i, matrix.GetLength(0) - i - 1];
+        for (int j = 0; j < i; j++)
+        {
+            if (matrix[i, j] < min)
+            {
+                min = matrix[i, j];
+            }
+        }
     }
-    return sum;
+    return min;
 }
