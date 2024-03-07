@@ -1,5 +1,10 @@
 ﻿internal class AbsentHoursByYear
 {
-    public int Year { get; set; }
-    public List<int> AbsentHours { get; set; }
+    public string Year { get; set; }
+    public int AbsentHours { get; set; }
+    public override string ToString()
+    {
+        return $"{Year} {AbsentHours}";
+    }
+    public AbsentHoursByYear() { }
 }

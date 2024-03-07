@@ -1,4 +1,5 @@
 ﻿using CustomLibrary.ConsoleExtensions;
+using static System.Reflection.Metadata.BlobBuilder;
 
 List<Student> students = await FileService.ReadFromFileAsync("szeptember.csv");
 ExtendedSystem.WriteCollectionToConsole(students);
@@ -22,3 +23,10 @@ foreach (Student item in absentStudents)
 {
     Console.WriteLine($"{item.Name} ({item.Year})");
 }
+List<AbsentHoursByYear> allAbsentHoursByYear = students.GroupBy(x => x.Year)
+                            .Select(x => new AbsentHoursByYear
+                            {
+                                Year = x.Key,
+                                AbsentHours = x.Sum(x => x.AbsentHours)
+                            }).ToList();
+await FileService.WriteToFileAsync("osszesites.csv", allAbsentHoursByYear);
