@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05_FileRead", "05_FileRead\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06_FileRead", "06_FileRead\06_FileRead.csproj", "{8F3AA404-1287-4CC4-8C88-E6E3D675DBA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_FileRead", "07_FileRead\07_FileRead.csproj", "{54A1EADF-5404-4E1C-A26D-D3945E89E908}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07_FileRead", "07_FileRead\07_FileRead.csproj", "{54A1EADF-5404-4E1C-A26D-D3945E89E908}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08_FileRead", "08_FileRead\08_FileRead.csproj", "{61990384-C4B0-4AD4-9B9F-15560821A399}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{54A1EADF-5404-4E1C-A26D-D3945E89E908}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54A1EADF-5404-4E1C-A26D-D3945E89E908}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54A1EADF-5404-4E1C-A26D-D3945E89E908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61990384-C4B0-4AD4-9B9F-15560821A399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61990384-C4B0-4AD4-9B9F-15560821A399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61990384-C4B0-4AD4-9B9F-15560821A399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61990384-C4B0-4AD4-9B9F-15560821A399}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
