@@ -3,29 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34601.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_01", "feladat_01\feladat_01.csproj", "{243F51B2-DADC-4125-A7A6-ABDB877BBB91}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomLibrary", "Custom.Library\CustomLibrary.csproj", "{57A85893-49EB-4A2B-9751-7D0A5916590B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_02", "feladat_02\feladat_02.csproj", "{9876A049-D9EF-4FA1-A020-A94C16B7F59C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_03", "feladat_03\feladat_03.csproj", "{BD4E86A2-DBB9-4D31-9D55-9CFF52C76195}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_04", "feladat_04\feladat_04.csproj", "{15ACD918-6550-435B-A16A-F253D12C0C0C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_05", "feladat_05\feladat_05.csproj", "{A87F50E1-20E9-4682-973E-5AE831C3AC55}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_06", "feladat_06\feladat_06.csproj", "{7DB9738B-302D-400B-B454-8271BCF501B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_01", "feladat_06\feladat_01.csproj", "{7DB9738B-302D-400B-B454-8271BCF501B7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_07", "feladat_07\feladat_07.csproj", "{BC429C65-A321-4BD3-8280-4990CA2422FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_02", "feladat_07\feladat_02.csproj", "{BC429C65-A321-4BD3-8280-4990CA2422FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "feladat_08", "feladat_08\feladat_08.csproj", "{002C2A12-9642-4AB9-B9B6-9E78CB818779}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_03", "feladat_08\feladat_03.csproj", "{002C2A12-9642-4AB9-B9B6-9E78CB818779}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "feladat_09", "feladat_09\feladat_09.csproj", "{545A1682-0062-4F15-BEF9-9C7D221267C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_04", "feladat_09\feladat_04.csproj", "{545A1682-0062-4F15-BEF9-9C7D221267C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "feladat_10", "feladat_10\feladat_10.csproj", "{3A915E9D-084A-42D8-A001-C4201C2AEA3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_06", "feladat_10\feladat_06.csproj", "{3A915E9D-084A-42D8-A001-C4201C2AEA3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "feladat_11", "feladat_11\feladat_11.csproj", "{BE256354-5AF9-4046-A9B8-9EDA8B6D6867}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feladat_07", "feladat_11\feladat_07.csproj", "{BE256354-5AF9-4046-A9B8-9EDA8B6D6867}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,26 +25,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{243F51B2-DADC-4125-A7A6-ABDB877BBB91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{243F51B2-DADC-4125-A7A6-ABDB877BBB91}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{243F51B2-DADC-4125-A7A6-ABDB877BBB91}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{243F51B2-DADC-4125-A7A6-ABDB877BBB91}.Release|Any CPU.Build.0 = Release|Any CPU
 		{57A85893-49EB-4A2B-9751-7D0A5916590B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{57A85893-49EB-4A2B-9751-7D0A5916590B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57A85893-49EB-4A2B-9751-7D0A5916590B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57A85893-49EB-4A2B-9751-7D0A5916590B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9876A049-D9EF-4FA1-A020-A94C16B7F59C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9876A049-D9EF-4FA1-A020-A94C16B7F59C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9876A049-D9EF-4FA1-A020-A94C16B7F59C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9876A049-D9EF-4FA1-A020-A94C16B7F59C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD4E86A2-DBB9-4D31-9D55-9CFF52C76195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD4E86A2-DBB9-4D31-9D55-9CFF52C76195}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD4E86A2-DBB9-4D31-9D55-9CFF52C76195}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD4E86A2-DBB9-4D31-9D55-9CFF52C76195}.Release|Any CPU.Build.0 = Release|Any CPU
-		{15ACD918-6550-435B-A16A-F253D12C0C0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15ACD918-6550-435B-A16A-F253D12C0C0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15ACD918-6550-435B-A16A-F253D12C0C0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15ACD918-6550-435B-A16A-F253D12C0C0C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A87F50E1-20E9-4682-973E-5AE831C3AC55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A87F50E1-20E9-4682-973E-5AE831C3AC55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A87F50E1-20E9-4682-973E-5AE831C3AC55}.Release|Any CPU.ActiveCfg = Release|Any CPU

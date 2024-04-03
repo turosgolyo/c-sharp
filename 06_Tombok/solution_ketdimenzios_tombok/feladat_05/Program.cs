@@ -1,27 +1,16 @@
 ﻿/*
- A felhasználótól kérjük be a mátrix dimenzióit (sor és
-oszlop), majd ezt a mátrixot töltsük fel adatokkal
-(random), majd írjuk ki. Adjuk össze az egyes sorok
-elemeit majd a sorok összegéből alkossunk egy új
-tömböt.
+ Keresse ki a mátrix dimenziójú tömb mellékátló alatti elemekből a legnagyobbat.
  */
 
 using CustomLibrary.ConsoleExtensions;
 using CustomLibrary.MathExtensions;
 
-int x = ExtendedConsole.ReadInteger("Adja meg a oszlopok szamat.");
-int y = ExtendedConsole.ReadInteger("Adja meg a sorok szamat.");
 
-int[,] matrix = GetTwoDimensionalArray(x, y);
+int[,] matrix = GetTwoDimensionalArray(5, 5);
 PrintMatrix(matrix);
-
-int[] sum = GetValueSum(matrix);
-
-Console.WriteLine("A mátrix sorainak elemeinek osszege:");
-for (int i = 0; i < sum.Length; i++)
-{
-    Console.Write($"{sum[i]} ");
-}
+Console.WriteLine();
+int max = GetMaxUnderSecondaryDiagonal(matrix);
+Console.WriteLine($"A mátrix mellékátló alatti legnagyobb elem: {max}");
 
 void PrintMatrix(int[,] matrix)
 {
@@ -29,7 +18,7 @@ void PrintMatrix(int[,] matrix)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            Console.Write(matrix[i, j] + " ");
+            Console.Write($"{matrix[i, j]} ");
         }
         Console.WriteLine();
     }
@@ -47,17 +36,21 @@ int[,] GetTwoDimensionalArray(int x, int y)
     }
     return matrix;
 }
-int[] GetValueSum(int[,] matrix)
+
+// Keresse ki a mátrix dimenziójú tömb mellékátló alatti elemekből a legnagyobbat.
+
+int GetMaxUnderSecondaryDiagonal(int[,] matrix)
 {
-    int[] valueSum = new int[matrix.GetLength(0)];
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    int max = matrix[1, 0];
+    for (int i = 2; i < matrix.GetLength(0); i++)
     {
-        int sum = 0;
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        for (int j = 0; j < i; j++)
         {
-            sum = sum + matrix[i, j];
+            if (matrix[i, j] > max)
+            {
+                max = matrix[i, j];
+            }
         }
-        valueSum[i] = sum;
     }
-    return valueSum;
+    return max;
 }

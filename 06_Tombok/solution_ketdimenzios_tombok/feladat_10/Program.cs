@@ -1,20 +1,25 @@
 ﻿/*
- A felhasználótól kérjük be a mátrix dimenzióit (sor
-és oszlop), majd ezt a mátrixot töltsük fel
-adatokkal (random), majd írjuk ki. Rakjuk sorba a
-mátrix elemeit növekvő sorrendbe.
+Keresse ki a mátrix (n x n) dimenziójú tömb mellékátló feletti elemekből a legkisebet.
  */
 using CustomLibrary.ConsoleExtensions;
 using CustomLibrary.MathExtensions;
 
-int x = ExtendedConsole.ReadInteger("Adja meg a oszlopok szamat.");
-int y = ExtendedConsole.ReadInteger("Adja meg a sorok szamat.");
+int[,] matrix = GetTwoDimensionalArray(5, 5);
+PrintMatrix(matrix);
+Console.WriteLine();
+int min = GetMinAboveSecondaryDiagonal(matrix);
+Console.WriteLine($"A mátrix mellékátló feletti legkisebb elem: {min}");
 
-int[,] matrix = GetTwoDimensionalArray(x, y);
-int[] sortedArray = GetSortedArray(matrix);
-foreach(int number in sortedArray)
+void PrintMatrix(int[,] matrix)
 {
-    Console.Write($"{number} ");
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            Console.Write($"{matrix[i, j]} ");
+        }
+        Console.WriteLine();
+    }
 }
 
 int[,] GetTwoDimensionalArray(int x, int y)
@@ -29,18 +34,18 @@ int[,] GetTwoDimensionalArray(int x, int y)
     }
     return matrix;
 }
-int[] GetSortedArray(int[,] matrix)
+int GetMinAboveSecondaryDiagonal(int[,] matrix)
 {
-    int[] sortedArray = new int[matrix.GetLength(0) * matrix.GetLength(1)];
-    int k = 0;
+    int min = matrix[0, 1];
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        for (int j = i + 1; j < matrix.GetLength(1); j++)
         {
-            sortedArray[k] = matrix[i, j];
-            k++;
+            if (matrix[i, j] < min)
+            {
+                min = matrix[i, j];
+            }
         }
     }
-    Array.Sort(sortedArray);
-    return sortedArray;
+    return min;
 }

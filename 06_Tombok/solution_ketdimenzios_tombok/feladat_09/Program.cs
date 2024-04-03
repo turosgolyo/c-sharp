@@ -1,6 +1,9 @@
 ﻿/*
- Számítsuk ki egy négyzetes mátrix mellék átlója
-feletti elemeinek a maximumát
+Keresse ki a mátrix (n x n) dimenziójú tömb fő átló alatti elemeket. A kiíratás az alábbi minta szerint történjen:
+[1,0]
+[2,0]  [2,1]
+[3,1] [3,2] [3,3]
+
  */
 
 
@@ -9,12 +12,11 @@ using CustomLibrary.MathExtensions;
 using System.Numerics;
 
 
+
 int[,] matrix = GetTwoDimensionalArray(5, 5);
 PrintMatrix(matrix);
-
-int max = GetOtherDiagonalAboveMaximum(matrix);
-
-Console.WriteLine($"A mátrix masik atlo feletti maximuma: {max}");
+Console.WriteLine();
+PrintMainDiagonalUnder(matrix);
 
 void PrintMatrix(int[,] matrix)
 {
@@ -22,7 +24,7 @@ void PrintMatrix(int[,] matrix)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            Console.Write(matrix[i, j] + " ");
+            Console.Write($"{matrix[i, j]} ");
         }
         Console.WriteLine();
     }
@@ -40,18 +42,15 @@ int[,] GetTwoDimensionalArray(int x, int y)
     }
     return matrix;
 }
-int GetOtherDiagonalAboveMaximum(int[,] matrix)
+
+void PrintMainDiagonalUnder(int[,] matrix)
 {
-    int max = matrix[0, matrix.GetLength(0) - 1];
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    for (int i = 1; i < matrix.GetLength(0); i++)
     {
-        for (int j = 0; j < matrix.GetLength(0) - i - 1; j++)
+        for (int j = 0; j < i; j++)
         {
-            if (matrix[i, j] > max)
-            {
-                max = matrix[i, j];
-            }
+            Console.Write($"{matrix[i, j]} ");
         }
+        Console.WriteLine();
     }
-    return max;
 }
