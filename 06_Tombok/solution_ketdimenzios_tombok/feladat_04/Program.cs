@@ -1,27 +1,22 @@
 ﻿/*
- A felhasználótól kérjük be a mátrix dimenzióit (sor és
-oszlop), majd ezt a mátrixot töltsük fel adatokkal
-(random), majd írjuk ki. Keressük ki minden sorban a
-legnagyobb számot és ezekből a számokból alkossunk
-egy tömböt.
+Keresse ki a mátrix (n x n) dimenziójú tömb fő átló alatti elemeket. A kiíratás az alábbi minta szerint történjen:
+[1,0]
+[2,0]  [2,1]
+[3,1] [3,2] [3,3]
+
  */
+
 
 using CustomLibrary.ConsoleExtensions;
 using CustomLibrary.MathExtensions;
+using System.Numerics;
 
-int x = ExtendedConsole.ReadInteger("Adja meg a oszlopok szamat.");
-int y = ExtendedConsole.ReadInteger("Adja meg a sorok szamat.");
 
-int[,] matrix = GetTwoDimensionalArray(x, y);
+
+int[,] matrix = GetTwoDimensionalArray(5, 5);
 PrintMatrix(matrix);
-
-int[] maxValues = GetMaxValues(matrix);
-
-Console.WriteLine("A mátrix sorainak legnagyobb elemei:");
-for (int i = 0; i < maxValues.Length; i++)
-{
-    Console.Write($"{maxValues[i]} ");
-}
+Console.WriteLine();
+PrintMainDiagonalUnder(matrix);
 
 void PrintMatrix(int[,] matrix)
 {
@@ -29,7 +24,7 @@ void PrintMatrix(int[,] matrix)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            Console.Write(matrix[i, j] + " ");
+            Console.Write($"{matrix[i, j]} ");
         }
         Console.WriteLine();
     }
@@ -47,20 +42,15 @@ int[,] GetTwoDimensionalArray(int x, int y)
     }
     return matrix;
 }
-int[] GetMaxValues(int[,] matrix)
+
+void PrintMainDiagonalUnder(int[,] matrix)
 {
-    int[] maxValues = new int[matrix.GetLength(0)];
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    for (int i = 1; i < matrix.GetLength(0); i++)
     {
-        int max = matrix[i, 0];
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        for (int j = 0; j < i; j++)
         {
-            if (matrix[i, j] > max)
-            {
-                max = matrix[i, j];
-            }
+            Console.Write($"{matrix[i, j]} ");
         }
-        maxValues[i] = max;
+        Console.WriteLine();
     }
-    return maxValues;
 }

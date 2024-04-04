@@ -1,18 +1,14 @@
 ﻿/*
- Számítsuk ki egy négyzetes mátrix főátlóján levő
-elemeinek összegét
+Keresse ki a mátrix (n x n) dimenziójú tömb mellékátló feletti elemekből a legkisebet.
  */
-
 using CustomLibrary.ConsoleExtensions;
 using CustomLibrary.MathExtensions;
 
-
 int[,] matrix = GetTwoDimensionalArray(5, 5);
 PrintMatrix(matrix);
-
-int sum = GetDiagonalSum(matrix);
-
-Console.WriteLine($"A mátrix atlojanak osszege: {sum}");
+Console.WriteLine();
+int min = GetMinAboveSecondaryDiagonal(matrix);
+Console.WriteLine($"A mátrix mellékátló feletti legkisebb elem: {min}");
 
 void PrintMatrix(int[,] matrix)
 {
@@ -38,12 +34,18 @@ int[,] GetTwoDimensionalArray(int x, int y)
     }
     return matrix;
 }
-int GetDiagonalSum(int[,] matrix)
+int GetMinAboveSecondaryDiagonal(int[,] matrix)
 {
-    int sum = 0;
+    int min = matrix[0, 1];
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        sum = sum + matrix[i, i];
+        for (int j = i + 1; j < matrix.GetLength(1); j++)
+        {
+            if (matrix[i, j] < min)
+            {
+                min = matrix[i, j];
+            }
+        }
     }
-    return sum;
+    return min;
 }

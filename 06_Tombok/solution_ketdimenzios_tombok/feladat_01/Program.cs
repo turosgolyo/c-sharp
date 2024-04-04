@@ -1,7 +1,18 @@
-﻿using CustomLibrary.MathExtensions;
+﻿/*
+ Számítsuk ki egy négyzetes mátrix főátlóján levő
+elemeinek összegét
+ */
 
-int[,] matrix = GetTwoDimensionalArray(4, 3);
+using CustomLibrary.ConsoleExtensions;
+using CustomLibrary.MathExtensions;
+
+
+int[,] matrix = GetTwoDimensionalArray(5, 5);
 PrintMatrix(matrix);
+
+int sum = GetDiagonalSum(matrix);
+
+Console.WriteLine($"A mátrix atlojanak osszege: {sum}");
 
 void PrintMatrix(int[,] matrix)
 {
@@ -9,7 +20,7 @@ void PrintMatrix(int[,] matrix)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            Console.Write(matrix[i, j] + " ");
+            Console.Write($"{matrix[i, j]} ");
         }
         Console.WriteLine();
     }
@@ -26,4 +37,13 @@ int[,] GetTwoDimensionalArray(int x, int y)
         }
     }
     return matrix;
+}
+int GetDiagonalSum(int[,] matrix)
+{
+    int sum = 0;
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        sum = sum + matrix[i, i];
+    }
+    return sum;
 }

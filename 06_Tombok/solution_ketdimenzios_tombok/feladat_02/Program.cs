@@ -1,11 +1,21 @@
-﻿using CustomLibrary.ConsoleExtensions;
+﻿/*
+ Keresse ki a mátrix (n x n) dimenziójú tömb mellékátlóinak elemét egy többmbe.
+ */
+
+using CustomLibrary.ConsoleExtensions;
 using CustomLibrary.MathExtensions;
 
-int x = ExtendedConsole.ReadInteger("Adja meg a oszlopok szamat.");
-int y = ExtendedConsole.ReadInteger("Adja meg a sorok szamat.");
 
-int[,] matrix = GetTwoDimensionalArray(x, y);
+int[,] matrix = GetTwoDimensionalArray(5, 5);
 PrintMatrix(matrix);
+
+int[] secondaryDiagonal = new int[matrix.GetLength(0)];
+secondaryDiagonal = GetSecondaryDiagonal(matrix);
+Console.WriteLine("Secondary diagonal: ");
+foreach (int number in secondaryDiagonal)
+{
+    Console.Write($"{number} ");
+}
 
 void PrintMatrix(int[,] matrix)
 {
@@ -31,3 +41,14 @@ int[,] GetTwoDimensionalArray(int x, int y)
     }
     return matrix;
 }
+
+int[] GetSecondaryDiagonal(int[,] matrix)
+{
+    int[] secondaryDiagonal = new int[matrix.GetLength(0)];
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        secondaryDiagonal[i] = matrix[i, matrix.GetLength(0) - i - 1];
+    }
+    return secondaryDiagonal;
+}
+

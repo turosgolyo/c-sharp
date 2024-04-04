@@ -1,24 +1,18 @@
 ﻿/*
- A felhasználótól kérjük be a mátrix dimenzióit (sor
-és oszlop), majd ezt a mátrixot töltsük fel
-adatokkal (random), írjuk ki és keressük meg a min
-és max értékeket.
-*/
+Keresse ki a mátrix (n x n) dimenziójú tömb fő átló feletti elemeket. A kiíratás az alábbi minta szerint történjen:
+    [0,1]  [0,2]  [0,3]
+           [0,2]  [0,3]
+                  [0,3]
 
+*/
 using CustomLibrary.ConsoleExtensions;
 using CustomLibrary.MathExtensions;
 
-int x = ExtendedConsole.ReadInteger("Adja meg a oszlopok szamat.");
-int y = ExtendedConsole.ReadInteger("Adja meg a sorok szamat.");
 
-int[,] matrix = GetTwoDimensionalArray(x, y);
+int[,] matrix = GetTwoDimensionalArray(5, 5);
 PrintMatrix(matrix);
-
-int minValue = GetMinValue(matrix);
-int maxValue = GetMaxValue(matrix);
-
-Console.WriteLine($"A mátrix legkisebb eleme: {minValue}");
-Console.WriteLine($"A mátrix legnagyobb eleme: {maxValue}");
+Console.WriteLine();
+PrintMainDiagonalAbove(matrix);
 
 void PrintMatrix(int[,] matrix)
 {
@@ -26,7 +20,7 @@ void PrintMatrix(int[,] matrix)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            Console.Write(matrix[i, j] + " ");
+            Console.Write($"{matrix[i, j]} ");
         }
         Console.WriteLine();
     }
@@ -45,34 +39,14 @@ int[,] GetTwoDimensionalArray(int x, int y)
     return matrix;
 }
 
-int GetMinValue(int[,] matrix)
+void PrintMainDiagonalAbove(int[,] matrix)
 {
-    int min = matrix[0, 0];
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        for (int j = i + 1; j < matrix.GetLength(1); j++)
         {
-            if (matrix[i, j] < min)
-            {
-                min = matrix[i, j];
-            }
+            Console.Write($"{matrix[i, j]} ");
         }
+        Console.WriteLine();
     }
-    return min;
-}
-
-int GetMaxValue(int[,] matrix)
-{
-    int max = matrix[0, 0];
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            if (matrix[i, j] > max)
-            {
-                max = matrix[i, j];
-            }
-        }
-    }
-    return max;
 }
