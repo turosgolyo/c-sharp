@@ -5,11 +5,19 @@ public class Fruit
     public int Calories { get; set; }
     public double Price { get; set; }
     public List<string> Importers { get; private set; } = new List<string>();
+    // public bool HasImporters => Importers.Any(); // csak olvashato tulajdonsag
+    public bool HasImporters // csak olvashato tulajdonsag
+    {
+        get
+        {
+            return Importers.Any();
+        }
+    }
     public Fruit()
     {
         //Importers = new List<string>();
     }
-    public Fruit(string name, int calories, double price = 0)// : this()
+    public Fruit(string name, int calories, double price)// : this()
     {
         this.Name= name;
         this.Calories = calories;

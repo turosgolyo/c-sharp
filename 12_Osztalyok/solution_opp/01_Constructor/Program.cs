@@ -4,7 +4,7 @@ apple.Name = "Apple";
 apple.Calories = 60;
 apple.Price = 450;
 apple.Importers.Add("ABCS");
-apple.Importers = new List<string>(); //private set miatt nem lehet erteket adni
+// apple.Importers = new List<string>(); private set miatt nem lehet erteket adni
 
 Fruit orange = new Fruit 
 { 
