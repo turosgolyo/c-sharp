@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "10_Superheroes", "10_Superh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "11_Spaceships", "11_Spaceships\11_Spaceships.csproj", "{8D3ABB91-88E5-45E3-88DD-275223B422E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12_Bank", "12_Bank\12_Bank.csproj", "{A4072897-305F-4799-B08D-E7B4D68DED7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "12_Bank", "12_Bank\12_Bank.csproj", "{A4072897-305F-4799-B08D-E7B4D68DED7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13_LoL", "13_LoL\13_LoL.csproj", "{E1C1350E-8CC1-485D-8450-E2498FC6974D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{A4072897-305F-4799-B08D-E7B4D68DED7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4072897-305F-4799-B08D-E7B4D68DED7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4072897-305F-4799-B08D-E7B4D68DED7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1C1350E-8CC1-485D-8450-E2498FC6974D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1C1350E-8CC1-485D-8450-E2498FC6974D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1C1350E-8CC1-485D-8450-E2498FC6974D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1C1350E-8CC1-485D-8450-E2498FC6974D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

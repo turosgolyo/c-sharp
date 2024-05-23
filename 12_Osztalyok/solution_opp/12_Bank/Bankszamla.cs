@@ -4,6 +4,6 @@
     public Tulajdonos Tulajdonos { get; set; }
     public string Szamlaszam { get; set; }
     public double Egyenleg { get; set; }
-    public abstract void Fizetes();
+    public abstract void Fizetes(double osszeg);
     public abstract double EgyenlegLekerese();
 }

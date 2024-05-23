@@ -1,4 +1,4 @@
-﻿public interface Betet
+﻿public interface IBetet
 {
     public void Kamatozik();
 }

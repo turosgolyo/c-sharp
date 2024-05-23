@@ -20,8 +20,10 @@
     DevizaTipus = Deviza.euro
 };
 
+bankszamla.Kamatozik();
+
 Console.WriteLine($"Egyenleg: {bankszamla.EgyenlegLekerese()} {bankszamla.DevizaTipus}");
 
-bankszamla.Fizetes();
+bankszamla.Fizetes(50);
 
 Console.WriteLine($"Egyenleg: {bankszamla.EgyenlegLekerese()} {bankszamla.DevizaTipus}");
