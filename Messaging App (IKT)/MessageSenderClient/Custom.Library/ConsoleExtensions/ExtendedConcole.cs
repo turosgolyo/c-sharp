@@ -140,4 +140,19 @@ public static class ExtendedConsole
 
         return text;
     }
+
+    public static char YesOrNo(string promt, char yes, char no)
+    {
+        char character;
+
+        do
+        {
+            Console.Write(promt);
+            character = Console.ReadKey()
+                               .KeyChar;
+        }
+        while (character != yes && character != no);
+
+        return character;
+    }
 }
