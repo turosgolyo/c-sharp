@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDiary.Database", "EDiary.Database\EDiary.Database.csproj", "{DE489F3E-16E0-43CE-92A9-C5548FB6B958}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDiary.ConsoleApp", "EDiary.ConsoleApp\EDiary.ConsoleApp.csproj", "{B5423834-D07B-4A70-9CD6-DD5CD38B301D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE489F3E-16E0-43CE-92A9-C5548FB6B958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE489F3E-16E0-43CE-92A9-C5548FB6B958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE489F3E-16E0-43CE-92A9-C5548FB6B958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE489F3E-16E0-43CE-92A9-C5548FB6B958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5423834-D07B-4A70-9CD6-DD5CD38B301D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5423834-D07B-4A70-9CD6-DD5CD38B301D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5423834-D07B-4A70-9CD6-DD5CD38B301D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5423834-D07B-4A70-9CD6-DD5CD38B301D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
