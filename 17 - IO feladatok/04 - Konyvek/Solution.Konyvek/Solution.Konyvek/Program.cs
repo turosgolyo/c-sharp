@@ -42,5 +42,21 @@ var booksPublishedIn1900 = books.Where(x => x.ReleaseYear >= 1900)
 
 await File.WriteAllLinesAsync("1900.txt", booksPublishedIn1900, Encoding.UTF8);
 
+var sortedByPages = books.OrderByDescending(x => x.PageCount).Select(x => x.ToFullString());
+await File.WriteAllLinesAsync("sorbarakott.txt", sortedByPages, Encoding.UTF8);
+
+var groupedByTheme = books.GroupBy(x => x.Theme).ToDictionary(k => k.Key, v => v.ToList());
+var stringBuilder = new StringBuilder();
+foreach(var group in groupedByTheme)
+{
+    stringBuilder.AppendLine($"{group.Key}: ");
+    foreach(var book in group.Value)
+    {
+        stringBuilder.AppendLine($"\t- {book.Title}");
+    }
+}
+
+await File.WriteAllTextAsync("kategoriak.txt", stringBuilder.ToString(), Encoding.UTF8);
+
 
 Console.ReadKey();
