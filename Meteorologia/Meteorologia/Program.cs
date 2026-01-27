@@ -39,13 +39,28 @@ if (noWind is null)
     }
 }
 
-List<WeatherByGroup> weathersByGroup;
 var groups = weathers.GroupBy(x => x.City);
 
 foreach (var group in groups)
 {
     List<int> temps = group.Where(x => x.Time.Hour == 1 || x.Time.Hour == 7 || x.Time.Hour == 13 || x.Time.Hour == 19).Select(x => x.Temperature).ToList();
     int tempChange = group.Max(x => x.Temperature) - group.Min(x => x.Temperature);
-    Console.WriteLine($"{group.Key} {(temps.Count() != 4 ? $"Középhőmérséklet: {temps.Average()}" : "NA")}; Hőmérséklet ingadozás: {tempChange}");
+    Console.WriteLine($"{group.Key} {(temps.Count() != 4 ? $"Középhőmérséklet: {temps.Average().ToString("#")}" : "NA")}; Hőmérséklet ingadozás: {tempChange}");
+
+    File.AppendAllText($"{group.Key}.txt", $"{group.Key}\n");
+    foreach(var time in group.Select(x => x.Time))
+    {
+        Weather weatherByTime = weathers.First(x => x.Time == time && x.City == group.Key);
+        int windStrength = int.Parse(weatherByTime.Wind.Substring(3, 2));
+        string windString = "";
+        for(int i = 0; i < windStrength; i++)
+        {
+            windString += "#";
+        }
+        File.AppendAllText($"{group.Key}.txt", $"{time.ToString("HH:mm")} {windString}\n");
+    }
+
+
 }
+
 
