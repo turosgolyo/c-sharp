@@ -1,0 +1,66 @@
+﻿using Meteorologia;
+using System.Globalization;
+using System.Text;
+
+List<string> lines = File.ReadAllLines("tavirathu13.txt", Encoding.UTF7).ToList();
+List<Weather> weathers = new List<Weather>();
+
+foreach (string line in lines)
+{
+    List<string> data = line.Split(' ').ToList();
+    weathers.Add(new Weather
+    {
+        City = data[0],
+        Time = DateTime.ParseExact(data[1], "HHmm", CultureInfo.InvariantCulture),
+        Wind = data[2],
+        Temperature = int.Parse(data[3]),
+    });
+}
+
+Console.WriteLine("Adjon meg egy varos kodjat: ");
+string city = Console.ReadLine().ToUpper();
+
+Weather latestMeasure = weathers.Where(x => x.City == city).OrderByDescending(x => x.Time).FirstOrDefault();
+Console.WriteLine(latestMeasure.ToString());
+
+Weather min = weathers.FirstOrDefault(x => x.Temperature == weathers.Min(x => x.Temperature));
+Console.WriteLine($"{min.City} {min.Time} {min.Temperature}");
+Weather max = weathers.FirstOrDefault(x => x.Temperature == weathers.Max(x => x.Temperature));
+Console.WriteLine($"{max.City} {max.Time} {max.Temperature}");
+
+List<Weather> noWind = weathers.Where(x => x.Wind == "00000").ToList();
+if (noWind is null)
+{
+    Console.WriteLine("Nem volt szélcsend a mérések idején.");
+} else
+{
+    foreach (Weather weather in noWind){    
+        Console.WriteLine($"{weather.City} {weather.Time.ToString("HH:mm")}");
+    }
+}
+
+var groups = weathers.GroupBy(x => x.City);
+
+foreach (var group in groups)
+{
+    List<int> temps = group.Where(x => x.Time.Hour == 1 || x.Time.Hour == 7 || x.Time.Hour == 13 || x.Time.Hour == 19).Select(x => x.Temperature).ToList();
+    int tempChange = group.Max(x => x.Temperature) - group.Min(x => x.Temperature);
+    Console.WriteLine($"{group.Key} {(temps.Count() != 4 ? $"Középhőmérséklet: {temps.Average().ToString("#")}" : "NA")}; Hőmérséklet ingadozás: {tempChange}");
+
+    File.AppendAllText($"{group.Key}.txt", $"{group.Key}\n");
+    foreach(var time in group.Select(x => x.Time))
+    {
+        Weather weatherByTime = weathers.First(x => x.Time == time && x.City == group.Key);
+        int windStrength = int.Parse(weatherByTime.Wind.Substring(3, 2));
+        string windString = "";
+        for(int i = 0; i < windStrength; i++)
+        {
+            windString += "#";
+        }
+        File.AppendAllText($"{group.Key}.txt", $"{time.ToString("HH:mm")} {windString}\n");
+    }
+
+
+}
+
+
